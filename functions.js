@@ -105,5 +105,80 @@ function imprimir(){
       listaContactos.sort();
 }
 
+function actualizar(){
+    let id = prompt('Actualizar contacto mediante id:');
+    let existe = '';
+    let index = '';
+    for (var i = 0; i < listaContactos.length; i++) {
+        
+        if (id == listaContactos[i].id) {
+            existe = 'si';
+            index = i;
+            break;
+        }
+        else {
+            existe = 'no';
+        }
+    }
+    if(existe == 'no'){
+        alert('Contacto no existe');
+    }
+    else{
+        let modificar = prompt('¿Que dato desea modificar (ingresar numero)? \n1. Nombre \n2. Apellido \n3. Teléfono \n4. Ciudad \n5. Dirección');
+        if(modificar == 1){
+            let nombre = prompt('Cambiar nombre:');
+            if(nombre != ''){
+                listaContactos[index].nombre = nombre;
+                alert('Se actualizó el nombre de contacto');
+            }
+            else{
+                alert('Campo vacio.');
+            }
+        }
+        else if(modificar == 2){
+            let apellido = prompt('Cambiar apellido:');
+            if(apellido != ''){
+                listaContactos[index].apellido = apellido;
+                alert('Se actualizó el apellido de contacto');
+            }
+            else{
+                alert('Campo vacio.');
+            }
+        }
+        else if(modificar == 3){
+            let telefono = prompt('Cambiar telefono:');
+            if(telefono != ''){
+                listaContactos[index].telefono = telefono;
+                alert('Se actualizó el teléfono de contacto');
+            }
+            else{
+                alert('Campo vacio.');
+            }
+        }
+        else if(modificar == 4){
+            let ciudad = prompt('Cambiar ciudad:');
+            if(ciudad != ''){
+                listaContactos[index].ubicaciones.ciudad = ciudad;
+                alert('Se actualizó la ciudad de contacto');
+            }
+            else{
+                alert('Campo vacio.');
+            }
+        }
+        else if(modificar == 5){
+            let dirección = prompt('Cambiar dirección:');
+            if(dirección != ''){
+                listaContactos[index].ubicaciones.dirección = dirección;
+                alert('Se actualizó la dirección de contacto');
+            }
+            else{
+                alert('Campo vacio.');
+            }
+        }
+    }
+    
+    //console.log(listaContactos);
+}
+
 
 imprimir();
